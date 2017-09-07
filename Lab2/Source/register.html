@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+
+
+    <!-- CSS -->
+    <!-- load bootstrap (bootswatch version) -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/readable/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+
+    </script>
+
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Hello </h1>
+
+        <pre>Name:      <input type="text"id="NameU"><br></pre>
+        <pre>Phone:     <input type="text"id="phone"><br></pre>
+        <pre>Email:     <input type="text"id="email"><br></pre>
+        <pre>UserName:  <input type="text"id="LU"><br></pre>
+        <pre>Password:  <input type="text" id="psw"><br></pre>
+        <br><br><br>
+
+        <a href="Home.html" class="btn btn-lg btn-primary" id="regbtn">Register</a>
+        <!--<a href="register.html"class="btn btn-lg btn-primary"> Register</a>
+        // <a href="#" class="btn btn-lg btn-primary" id="refresh">Refresh</a>-->
+    </div>
+</div>
+
+<script>
+    $("#regbtn").click(function(){
+        var username=$("#LU").val()
+        //$("#username").text(" Hello "+username)
+
+        var passwd=$("#psw").val()
+        //var user={'username':username, 'passwd':passwd}
+
+        localStorage.name = $("#NameU").val()
+        localStorage.phone = $("#phone").val()
+        localStorage.email = $("#email").val()
+        localStorage.username = username
+        localStorage.passwd = passwd
+
+    })
+    // var username= "Noah"
+    // $("#username").text(" Hello "+username)
+</script>
+</body>
+</html>
