@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map</title>
+
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/3.1.1/readable/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpn3G24u5MDMqnR8ggXVJiivVlbyN9jTg&libraries=places&callback=initMap">
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+
+            <h3>Welcome to Map Page</h3>
+
+
+
+            <h6>My Google Maps Demo</h6>
+
+            <input type="text" id = "input"><a href="#" class = "btn btn-lg btn-primary" id="search">Search</a>
+            <div id="map"></div>
+
+        </div>
+    </div>
+    <script>
+        var map;
+        var autocomplete;
+        var place;
+        function initMap() {
+            var kc = {lat: 39.1141, lng: -94.5555};
+            //var newyork = {lat: 40.7128, lng: -74.0058};
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: kc
+            });
+
+            input = document.getElementById('input');
+            autocomplete = new google.maps.places.Autocomplete(input);
+
+            var trafficLayer = new google.maps.TrafficLayer();
+            trafficLayer.setMap(map);
+            //var bb = [39.95,-105.25,39.52,-104.71]
+            //incidents(bb)
+            infoWindow = new google.maps.InfoWindow;
+
+            // https://developers.google.com/maps/documentation/javascript/geolocation
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent('Location found.');
+                    infoWindow.open(map);
+                    map.setCenter(pos);
+                }, function () {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+        }
+        function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+            infoWindow.setPosition(pos);
+            infoWindow.setContent(browserHasGeolocation ?
+                'Error: The Geolocation service failed.' :
+                'Error: Your browser doesn\'t support geolocation.');
+            infoWindow.open(map);
+        }
+
+        $("#search").click(function(){
+            place = $("#input").val();
+            var placeLocation = place.geometry.location;
+            var marker = new google.map.Marker(
+
+                {map: map,
+                    position: place.geometry.location
+                }
+            );
+
+            google.maps.event.addListener(marker, 'click', function()
+            {
+                infowindow.setContent(place.name);
+                infowindow.open(map,this);
+            })
+
+        });
+    </script>
+</body>
+</html>
