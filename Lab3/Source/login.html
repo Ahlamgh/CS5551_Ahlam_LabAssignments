@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- for google -->
+
+    <meta name="google-signin-client_id" content="1045268628416-d6fuagjklidt16mpbd63uoifsmrapdga.apps.googleusercontent.com">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Login page</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="narrow-jumbotron.css" rel="stylesheet">
+
+    <!--Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+
+
+
+    <!-- my app.js -->
+    <script src="app.js"></script>
+
+    <style>
+        .g-signin2{
+            width: 100%;
+        }
+        .g-signin2 div{
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="header clearfix">
+        <nav>
+            <ul class="nav nav-pills float-right">
+                <li class="nav-item">
+                    <a class="nav-link " href="home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                   <!-- <a class="nav-link" href="login.html">Login</a> -->
+                    <a class="nav-link active" href="login.html">Login <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mashup.html">Mashup</a>
+                </li>
+            </ul>
+        </nav>
+        <h3 class="text-muted">Assignment 3</h3>
+    </div>
+
+    <div class="jumbotron">
+        <h1 class="display-3">Authentication Login</h1>
+        <p class="lead">Please, Login with your Google account</p>
+        <div class="text-center">
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+        </div>
+        <p class="lead">Name: <span id="name"></span></p>
+        <p class="lead">Email: <span id="email"></span></p>
+
+    </div>
+
+
+
+    <footer class="footer">
+        <p>&copy; Company 2017</p>
+    </footer>
+
+</div> <!-- /container -->
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+
+<!-- google script -->
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+</body>
+</html>
